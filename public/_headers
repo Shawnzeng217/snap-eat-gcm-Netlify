@@ -1,0 +1,19 @@
+# Apply to all files
+/*
+  X-Content-Type-Options: nosniff
+
+# Root level assets
+/*.js
+  Content-Type: application/javascript
+/*.mjs
+  Content-Type: application/javascript
+/*.wasm
+  Content-Type: application/wasm
+
+# Vite assets directory (Default)
+/assets/*.js
+  Content-Type: application/javascript
+/assets/*.mjs
+  Content-Type: application/javascript
+/assets/*.wasm
+  Content-Type: application/wasm
