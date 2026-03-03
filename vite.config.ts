@@ -11,12 +11,12 @@ export default defineConfig(({ mode }) => {
     base: '/',
     plugins: [react()],
     define: {
-      'process.env.API_KEY': JSON.stringify(env.API_KEY),
+      'process.env.API_KEY': JSON.stringify(env.API_KEY || env.VITE_API_KEY || ''),
       'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(env.VITE_SUPABASE_URL || ''),
       'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(env.VITE_SUPABASE_ANON_KEY || ''),
       'import.meta.env.VITE_GATEWAY_URL': JSON.stringify(env.VITE_GATEWAY_URL || ''),
-      'import.meta.env.VITE_API_KEY': JSON.stringify(env.VITE_API_KEY || ''),
-      'import.meta.env.VITE_MODEL': JSON.stringify(env.VITE_MODEL || '')
+      'import.meta.env.VITE_API_KEY': JSON.stringify(env.VITE_API_KEY || env.API_KEY || ''),
+      'import.meta.env.VITE_MODEL': JSON.stringify(env.VITE_MODEL || env.API_MODEL || '')
     },
     server: {
       port: 3000,
