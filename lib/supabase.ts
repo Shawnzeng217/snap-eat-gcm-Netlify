@@ -1,12 +1,13 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-// Access environment variables
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Access environment variables with sanitization
+const supabaseUrl = (import.meta.env.VITE_SUPABASE_URL || "").trim().replace(/^["']|["']$/g, '');
+const supabaseAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY || "").trim().replace(/^["']|["']$/g, '');
 
 // Detailed Debug Logging
 console.log("Supabase Debug - URL:", supabaseUrl || "MISSING");
+console.log("Supabase Debug - Key Prefix:", (supabaseAnonKey || "").substring(0, 10));
 console.log("Supabase Debug - Key exists:", !!supabaseAnonKey);
 
 // Safe Client Creation
