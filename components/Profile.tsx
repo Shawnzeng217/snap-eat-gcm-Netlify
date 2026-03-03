@@ -143,7 +143,9 @@ export const Profile: React.FC<ProfileProps> = ({
 
         try {
             const GATEWAY_URL = import.meta.env.VITE_GATEWAY_URL || "https://ai.juguang.chat/v1/chat/completions";
-            const apiKey = import.meta.env.VITE_API_KEY || process.env.API_KEY;
+            const apiKey = import.meta.env.VITE_API_KEY;
+            console.log("AI Debug (Profile) - Key Length:", (apiKey || "").length);
+            console.log("AI Debug (Profile) - Key Prefix:", (apiKey || "").substring(0, 5));
 
             const response = await fetch(GATEWAY_URL, {
                 method: 'POST',

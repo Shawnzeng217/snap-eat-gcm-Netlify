@@ -62,7 +62,10 @@ export const Scanning: React.FC<ScanningProps> = ({ uploadedImage, targetLanguag
 
         // 2. Setup AI Gateway Endpoint (Domestic Proxy)
         const GATEWAY_URL = import.meta.env.VITE_GATEWAY_URL || "https://ai.juguang.chat/v1/chat/completions";
-        const apiKey = import.meta.env.VITE_API_KEY || process.env.API_KEY;
+        const apiKey = import.meta.env.VITE_API_KEY;
+        console.log("AI Debug (Profile) - Key Length:", (apiKey || "").length);
+        console.log("AI Debug - Key Prefix:", (apiKey || "").substring(0, 5));
+        console.log("AI Debug - Endpoint:", GATEWAY_URL);
         // 3. Define Schema (Updated for Root Object with isMenu)
         const responseSchema = {
           type: "OBJECT",
