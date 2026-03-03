@@ -143,7 +143,13 @@ export const Profile: React.FC<ProfileProps> = ({
 
         try {
             const GATEWAY_URL = import.meta.env.VITE_GATEWAY_URL || "https://ai.juguang.chat/v1/chat/completions";
-            const apiKey = (import.meta.env.VITE_API_KEY || "").trim().replace(/^["']|["']$/g, '');
+            const rawKey = import.meta.env.VITE_API_KEY || (import.meta as any).env?.API_KEY || "";
+            const apiKey = rawKey.trim().replace(/^["']|["']$/g, '');
+
+            if (!apiKey) {
+                console.error("❌ CRITICAL: AI_KEY or VITE_API_KEY is missing from environment variables!");
+            }
+
             console.log("AI Debug (Profile) - Key Length:", (apiKey || "").length);
             console.log("AI Debug (Profile) - Key Prefix:", (apiKey || "").substring(0, 5));
 
