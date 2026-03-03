@@ -116,6 +116,9 @@ export const Scanning: React.FC<ScanningProps> = ({ uploadedImage, targetLanguag
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${apiKey}`,
+            'OE-Key': import.meta.env.VITE_OE_KEY,
+            'OE-Gateway-Name': 'gemini-proxy',
+            'OE-AI-Provider': 'openai',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(requestBody)
