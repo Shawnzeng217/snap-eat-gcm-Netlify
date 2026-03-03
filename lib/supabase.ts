@@ -5,11 +5,6 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = (import.meta.env.VITE_SUPABASE_URL || "").trim().replace(/^["']|["']$/g, '');
 const supabaseAnonKey = (import.meta.env.VITE_SUPABASE_ANON_KEY || "").trim().replace(/^["']|["']$/g, '');
 
-// Detailed Debug Logging
-console.log("Supabase Debug - URL:", supabaseUrl || "MISSING");
-console.log("Supabase Debug - Key Prefix:", (supabaseAnonKey || "").substring(0, 10));
-console.log("Supabase Debug - Key exists:", !!supabaseAnonKey);
-
 // Safe Client Creation
 const createSafeClient = () => {
     if (supabaseUrl && supabaseAnonKey && supabaseUrl !== "MISSING") {
