@@ -98,9 +98,8 @@ export const Scanning: React.FC<ScanningProps> = ({ uploadedImage, targetLanguag
 
         // --- PARALLEL EXECUTION: AI + MANDATED OCR ---
 
-        // A. Start AI Analysis via Domestic Proxy (OpenAI-compatible format)
         const requestBody = {
-          model: import.meta.env.VITE_MODEL || "gemini-1.5-flash",
+          model: import.meta.env.VITE_MODEL || "gemini-2.5-flash",
           messages: [
             {
               role: "user",

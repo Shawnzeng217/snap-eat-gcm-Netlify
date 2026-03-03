@@ -153,7 +153,7 @@ export const Profile: React.FC<ProfileProps> = ({
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    model: import.meta.env.VITE_MODEL || "gemini-1.5-flash",
+                    model: import.meta.env.VITE_MODEL || "gemini-2.5-flash",
                     messages: [
                         { role: "user", content: `Translate the following dietary restriction note into ${defaultLanguage} for a chef to read. Keep it clear, polite and concise. Return ONLY the translated text.\n\nText: "${dietaryNotes}"` }
                     ]

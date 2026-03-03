@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(env.VITE_SUPABASE_ANON_KEY || ''),
       'import.meta.env.VITE_GATEWAY_URL': JSON.stringify(env.VITE_GATEWAY_URL || ''),
       'import.meta.env.VITE_API_KEY': JSON.stringify(env.VITE_API_KEY || env.API_KEY || ''),
-      'import.meta.env.VITE_MODEL': JSON.stringify(env.VITE_MODEL || env.API_MODEL || '')
+      'import.meta.env.VITE_MODEL': JSON.stringify(env.VITE_MODEL || env.API_MODEL || 'gemini-2.5-flash')
     },
     server: {
       port: 3000,
